@@ -21,6 +21,7 @@ namespace math {
 namespace test {
 namespace {
 
+/*
 GTEST_TEST(Matrix3Test, Matrix3FullTests) {
   const double kTolerance{1e-12};
   Matrix3 m1{1., 2., 3., 4., 5., 6., 7., 8., 9.};
@@ -127,6 +128,7 @@ GTEST_TEST(Matrix3Test, Matrix3FullTests) {
   EXPECT_EQ(m4_moved[2][1], 8);
   EXPECT_EQ(m4_moved[2][2], 10);
 }
+*/
 
 }  // namespace
 }  // namespace test

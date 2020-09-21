@@ -1,5 +1,6 @@
 /*
  * Isometry library
+ * Copyright 2020 Ekumen Inc.
  * Author: Agustin Alba Chicar, 2019
  * Author: Gerardo Puga, 2020
  */

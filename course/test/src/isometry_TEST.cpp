@@ -21,6 +21,7 @@ namespace math {
 namespace test {
 namespace {
 
+/*
 testing::AssertionResult areAlmostEqual(const Isometry &obj1,
                                         const Isometry &obj2,
                                         const double tolerance) {
@@ -108,6 +109,8 @@ GTEST_TEST(IsometryTest, IsometryFullTests) {
   EXPECT_EQ(t9 *= t2, t10);
   EXPECT_EQ(t9 * Vector3(1., 1., 1.), Vector3(3., 5., 7.));
 }
+
+*/
 
 }  // namespace
 }  // namespace test
