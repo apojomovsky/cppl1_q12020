@@ -13,7 +13,7 @@
 #include <sstream>
 #include <string>
 
-#include <isometry/isometry.hpp>
+#include <isometry/matrix3.hpp>
 #include "gtest/gtest.h"
 
 namespace ekumen {
@@ -21,13 +21,11 @@ namespace math {
 namespace test {
 namespace {
 
-/*
 GTEST_TEST(Matrix3Test, Matrix3FullTests) {
   const double kTolerance{1e-12};
   Matrix3 m1{1., 2., 3., 4., 5., 6., 7., 8., 9.};
   const Matrix3 m2{1., 2., 3., 4., 5., 6., 7., 8., 9.};
   const Matrix3 m3{1., 2., 3., 4., 5., 6., 7., 8., 9.};
-
   EXPECT_EQ(Matrix3::kIdentity, Matrix3({1., 0., 0., 0., 1., 0., 0., 0., 1.}));
   EXPECT_EQ(Matrix3::kOnes, Matrix3({1., 1., 1., 1., 1., 1., 1., 1., 1.}));
   EXPECT_EQ(Matrix3::kZero, Matrix3({0., 0., 0., 0., 0., 0., 0., 0., 0.}));
@@ -128,7 +126,6 @@ GTEST_TEST(Matrix3Test, Matrix3FullTests) {
   EXPECT_EQ(m4_moved[2][1], 8);
   EXPECT_EQ(m4_moved[2][2], 10);
 }
-*/
 
 }  // namespace
 }  // namespace test

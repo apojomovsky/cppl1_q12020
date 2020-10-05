@@ -82,7 +82,7 @@ Vector3& Vector3::operator*=(const Vector3& vector) {
   return *this;
 }
 
-Vector3& Vector3::operator*=(double scalar) {
+Vector3& Vector3::operator*=(const double scalar) {
   x_ *= scalar;
   y_ *= scalar;
   z_ *= scalar;
@@ -96,7 +96,7 @@ Vector3& Vector3::operator/=(const Vector3& vector) {
   return *this;
 }
 
-Vector3& Vector3::operator/=(double scalar) {
+Vector3& Vector3::operator/=(const double scalar) {
   x_ /= scalar;
   y_ /= scalar;
   z_ /= scalar;

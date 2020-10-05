@@ -58,13 +58,13 @@ class Vector3 {
   Vector3& operator*=(const Vector3& vector);
 
   /// \brief Non const implementation of the mult times double assign operator.
-  Vector3& operator*=(double scalar);
+  Vector3& operator*=(const double scalar);
 
   /// \brief Non const implementation of the divide over vector assign operator.
   Vector3& operator/=(const Vector3& vector);
 
   /// \brief Non const implementation of the divide over double assign operator.
-  Vector3& operator/=(double scalar);
+  Vector3& operator/=(const double scalar);
 
   /// \brief Equals to operator.
   bool operator==(const Vector3& vector) const;
