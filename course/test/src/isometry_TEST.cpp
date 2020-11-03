@@ -21,7 +21,6 @@ namespace math {
 namespace test {
 namespace {
 
-/*
 testing::AssertionResult areAlmostEqual(const Isometry &obj1,
                                         const Isometry &obj2,
                                         const double tolerance) {
@@ -37,7 +36,8 @@ testing::AssertionResult areAlmostEqual(const Isometry &obj1,
       std::abs(obj1.rotation()[2][0] - obj2.rotation()[2][0]) > tolerance ||
       std::abs(obj1.rotation()[2][1] - obj2.rotation()[2][1]) > tolerance ||
       std::abs(obj1.rotation()[2][2] - obj2.rotation()[2][2]) > tolerance) {
-    return testing::AssertionFailure() << "The isometries are not almost equal";
+    return testing::AssertionFailure()
+           << "The isometries are not almost equal ";
   }
   return testing::AssertionSuccess();
 }
@@ -54,7 +54,8 @@ testing::AssertionResult areAlmostEqual(const Matrix3 &obj1,
       std::abs(obj1[2][0] - obj2[2][0]) > tolerance ||
       std::abs(obj1[2][1] - obj2[2][1]) > tolerance ||
       std::abs(obj1[2][2] - obj2[2][2]) > tolerance) {
-    return testing::AssertionFailure() << "The isometries are not almost equal";
+    return testing::AssertionFailure()
+           << "The isometries are not almost equal ";
   }
   return testing::AssertionSuccess();
 }
@@ -109,8 +110,6 @@ GTEST_TEST(IsometryTest, IsometryFullTests) {
   EXPECT_EQ(t9 *= t2, t10);
   EXPECT_EQ(t9 * Vector3(1., 1., 1.), Vector3(3., 5., 7.));
 }
-
-*/
 
 }  // namespace
 }  // namespace test

@@ -27,8 +27,9 @@ class Vector3 {
   /// \brief Constructor parametrized with 3 doubles.
   Vector3(const double x, const double y, const double z);
 
-  // Null vector.
-  static const Vector3 kZero;
+  /// \brief Constructor parametrized with an initializer list.
+  /// \throw std::out_of_range When size of initializer list is different to 3.
+  explicit Vector3(std::initializer_list<double> list);
 
   /// \brief Const implementation of the sum operator.
   Vector3 operator+(const Vector3& vector) const;
@@ -115,6 +116,9 @@ class Vector3 {
   /// \brief Getter of z.
   /// \return A mutable reference to z.
   double& z();
+
+  // Null vector.
+  static const Vector3 kZero;
 
   // Unit vectors along the 3 axis.
   static const Vector3 kUnitX;

@@ -101,6 +101,13 @@ class Matrix3 {
   /// \returns A double with value of the matrix' determinant.
   double det() const;
 
+  /// \brief Returns the inverse of the matrix.
+  /// \returns A new matrix with the inverse.
+  Matrix3 inverse() const;
+
+  Matrix3 product(const Matrix3& matrix) const;
+  Vector3 product(const Vector3& vector) const;
+
   /// \brief Returns a reference to a row.
   /// \param index Row number.
   /// \returns A Vector3.

@@ -4,9 +4,12 @@
  * Author: Alexis Pojomovsky, 2020
  */
 
-#include <isometry/matrix3.hpp>
+#include <array>
+#include <cmath>
 #include <limits>
 #include <stdexcept>
+
+#include <isometry/matrix3.hpp>
 
 namespace ekumen {
 namespace math {
@@ -126,7 +129,7 @@ Matrix3 Matrix3::operator*(const Matrix3& matrix) const {
 }
 
 Vector3 Matrix3::operator*(const Vector3& vector) const {
-  return {row_0_.dot(vector), row_1_.dot(vector), row_2_.dot(vector)};
+  return Vector3{row_0_.dot(vector), row_1_.dot(vector), row_2_.dot(vector)};
 }
 
 Matrix3 Matrix3::operator*(const double scalar) const {
@@ -155,6 +158,47 @@ double Matrix3::det() const {
   return row_0_[0] * (row_1_[1] * row_2_[2] - row_1_[2] * row_2_[1]) -
          row_0_[1] * (row_1_[0] * row_2_[2] - row_1_[2] * row_2_[0]) +
          row_0_[2] * (row_1_[0] * row_2_[1] - row_1_[1] * row_2_[0]);
+}
+
+Matrix3 Matrix3::inverse() const {
+  double det = this->det();
+  if (std::fabs(det) < 0.000001) {
+    throw std::runtime_error("Matrix is non-invertible");
+  }
+  const double a = row_0_[0];
+  const double b = row_0_[1];
+  const double c = row_0_[2];
+  const double d = row_1_[0];
+  const double e = row_1_[1];
+  const double f = row_1_[2];
+  const double g = row_2_[0];
+  const double h = row_2_[1];
+  const double k = row_2_[2];
+  return 1 / det *
+         Matrix3((e * k - f * h), -(b * k - c * h), (b * f - c * e),
+                 -(d * k - f * g), (a * k - c * g), -(a * f - c * d),
+                 (d * h - e * g), -(a * h - b * h), (a * e - b * d));
+}
+
+Matrix3 Matrix3::product(const Matrix3& matrix) const {
+  const auto r0 = row(0);
+  const auto r1 = row(1);
+  const auto r2 = row(2);
+  const auto c0 = matrix.col(0);
+  const auto c1 = matrix.col(1);
+  const auto c2 = matrix.col(2);
+  return Matrix3{
+      r0.dot(c0), r0.dot(c1), r0.dot(c2), r1.dot(c0), r1.dot(c1),
+      r1.dot(c2), r2.dot(c0), r2.dot(c1), r2.dot(c2),
+  };
+}
+
+Vector3 Matrix3::product(const Vector3& vector) const {
+  std::array<double, 3> arr{};
+  for (int i = 0; i < 3; ++i) {
+    arr.at(i) = row(i).dot(vector);
+  }
+  return Vector3{arr[0], arr[1], arr[2]};
 }
 
 Vector3& Matrix3::row(const int index) { return (*this)[index]; }

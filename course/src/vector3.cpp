@@ -18,6 +18,17 @@ const Vector3 Vector3::kUnitZ{Vector3(0., 0., 1.)};
 
 Vector3::Vector3() : x_{0.}, y_{0.}, z_{0.} {}
 
+Vector3::Vector3(std::initializer_list<double> list) {
+  if (list.size() != 3) {
+    throw std::runtime_error(
+        "Initializer list constructor requires 3 elements.");
+  }
+  auto it = std::begin(list);
+  x_ = *it++;
+  y_ = *it++;
+  z_ = *it;
+}
+
 Vector3::Vector3(const double x, const double y, const double z)
     : x_{x}, y_{y}, z_{z} {}
 
